@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Quiz Kimia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background:#ffffff;
+    color:#1a3a7a;
+    padding:20px;
+}
+.container{
+    max-width:700px;
+    margin:auto;
+    background:#f4f7ff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(26,58,122,0.15);
+}
+h1{
+    text-align:center;
+}
+.question{
+    font-size:18px;
+    margin-bottom:15px;
+}
+.options label{
+    display:block;
+    background:#ffffff;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:8px;
+    border:2px solid #1a3a7a;
+    cursor:pointer;
+}
+.options input{
+    margin-right:10px;
+}
+button{
+    background:#1a3a7a;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:15px;
+}
+button:hover{
+    background:#0f2754;
+}
+.result{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    text-align:center;
+}
+.back{
+    display:block;
+    margin-top:20px;
+    text-align:center;
+    text-decoration:none;
+    font-weight:600;
+    color:#1a3a7a;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<h1>Quiz Kimia</h1>
+
+<div class="question">
+1. Perubahan yang menghasilkan zat baru disebut …
+</div>
+
+<div class="options">
+<label><input type="radio" name="q1" value="0"> Perubahan fisika</label>
+<label><input type="radio" name="q1" value="1"> Perubahan kimia</label>
+<label><input type="radio" name="q1" value="0"> Pelarutan</label>
+<label><input type="radio" name="q1" value="0"> Pencampuran</label>
+</div>
+
+<button onclick="checkAnswer()">Submit</button>
+
+<div class="result" id="result"></div>
+
+<a class="back" href="index.html">← Kembali ke Beranda</a>
+</div>
+
+<script>
+function checkAnswer(){
+    const answer = document.querySelector('input[name="q1"]:checked');
+    const result = document.getElementById("result");
+
+    if(!answer){
+        result.innerHTML = "❗ Silakan pilih jawaban terlebih dahulu.";
+        result.style.color = "red";
+        return;
+    }
+
+    if(answer.value === "1"){
+        result.innerHTML = "✅ Jawaban benar! Perubahan kimia menghasilkan zat baru.";
+        result.style.color = "green";
+    } else {
+        result.innerHTML = "❌ Jawaban salah. Jawaban yang benar adalah perubahan kimia.";
+        result.style.color = "red";
+    }
+}
+</script>
+
+</body>
+</html>
